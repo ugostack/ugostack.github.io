@@ -1,14 +1,27 @@
-<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-    <script type="module" crossorigin src="/assets/index-MJNRYYyu.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DiwrgTda.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where are you ?</title>
+</head>
+<body>
+  <h1>Where are you ?</h1>
+  <p>It's a simple web application that shows your location on the map.</p>
+  <p>Click the button below to get your location.</p>
+  <button id="get-location">Get Location</button>
+  <script>
+    document.getElementById('get-location').addEventListener('click', function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var latitude = position.coords.latitude;
+          var longitude = position.coords.longitude;
+          var url = 'https://www.openstreetmap.org/#map=18/' + latitude + '/' + longitude;
+          window.open(url, '_blank');
+        });
+      } else {
+        alert('Geolocation is not supported by this browser.');
+      }
+    });
+  </script>
+</body>
 </html>
