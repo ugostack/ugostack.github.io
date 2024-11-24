@@ -1,27 +1,106 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Where are you ?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lettre au Père Noël</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+       body {
+    margin: 0;
+    font-family: 'Patrick Hand', cursive;
+    background: linear-gradient(135deg, #FFEFBA, #FFFFFF);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #fef8e6;
+    border: 5px solid #d2691e;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.decorative-circle {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #ff0000, #a10000);
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+h1 {
+    color: #d2691e;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    color: #a52a2a;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+p {
+    color: #6b4226;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+strong {
+    color: #d2691e;
+}
+
+em {
+    color: #a52a2a;
+    font-style: italic;
+}
+
+
+    </style>
 </head>
 <body>
-  <h1>Where are you ?</h1>
-  <p>It's a simple web application that shows your location on the map.</p>
-  <p>Click the button below to get your location.</p>
-  <button id="get-location">Get Location</button>
-  <script>
-    document.getElementById('get-location').addEventListener('click', function() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var latitude = position.coords.latitude;
-          var longitude = position.coords.longitude;
-          var url = 'https://www.openstreetmap.org/#map=18/' + latitude + '/' + longitude;
-          window.open(url, '_blank');
-        });
-      } else {
-        alert('Geolocation is not supported by this browser.');
-      }
-    });
-  </script>
+    <div class="container">
+        <div class="letter">
+            <div class="decorative-circle"></div>
+            <h1>Cher Père Noël,</h1>
+            <p>
+                Je t’écris aujourd’hui avec tout le respect et la dévotion qu’un amateur de chocolat chaud peut porter à l’homme qui porte fièrement un manteau rouge dans des conditions météorologiques discutables.
+                Cette année, ma demande est humble, mais non dénuée de créativité, alors prends une grande gorgée de lait de renne, ajuste tes lunettes, et laisse-moi te guider dans mes envies (sans pression, bien sûr, je suis flexible).
+            </p>
+            <h2>Mon souhait n°1 :</h2>
+            <p>
+                Une <strong>gourde Cabaïa bleue en inox</strong>. Pourquoi bleue ? Parce que c’est la couleur du ciel, des mers et de mes rêves quand je me dis : « Avec une belle gourde, je serai enfin une personne hydratée, épanouie, et prête à conquérir le monde. » En inox pour le style, mais aussi pour le café bien chaud qui survivra à une matinée trépidante (ou une sieste prolongée).
+            </p>
+            <h2>Mon souhait n°2 :</h2>
+            <p>
+                Un <strong>chauffe-tasse</strong>, idéal pour garder ma boisson chaude, même quand je suis distrait.e par les réseaux sociaux ou par un pingouin dans un documentaire animalier. J’ai vu des <a href="https://www.amazon.com.be/APEKX-Tasse-c%C3%A9ramique-auto-chauffante-temp%C3%A9rature/dp/B0B6CGZGR3/ref=sr_1_15?crid=3VOT8O6WMAGA&dib=eyJ2IjoiMSJ9.ZpQTNhhYHTyiC6wR3CjAc14VQt5fGBp-PmFee4WCIuxPfSDP_o4CGEurG4DqMsnU6sOrQeF_ajW6OVpfhw1jsaCjc12uczsFW5XYAMRJDizSi60KTdWI_2zkG4AcuSiSNIIIENb03jGgBAqUx9NQ-7_VR7H3uLGe3L942ZP6sf7AJNg7m0Z1Qold3FfZokwD0_64DfQKSa4y41rvDdBhmjBfuHr9l1zgNhk-h4WR_Vg.e1PT3vm4FuRRQfE1g-AlpaDapywIoN8l27VTcfPsAcY&dib_tag=se&keywords=chauffe%2Btasse&qid=1732472577&s=home&sprefix=chauffe%2Btasse%2Ckitchen%2C275&sr=1-15&th=1">modèles élégants</a> D'un autre coté, je sais que tu as du goût ainsi je te fais confiance, toi qui arrives toujours à jongler entre créativité et efficacité.
+            </p>
+            <h2>Et les surprises ?</h2>
+            <p>
+                Oh, Père Noël, c’est là que tu entres en scène avec tout ton génie ! Je t’invite à laisser parler ta magie : peut-être un gadget amusant, un objet insolite ou une cacahuète en peluche pour égayer mon quotidien. Je n’ai aucune limite (sauf celles de ton traîneau et de la gravité).
+            </p>
+            <p>
+                Promis, j’ai été sage cette année (ou presque). Mais si jamais tu as un doute, n’oublie pas : c’est l’intention qui compte, et j’accepte même les surprises improbables.
+            </p>
+            <p>
+                Passe le bonjour à Madame Noël et n’oublie pas de filer quelques cacahuètes à tes rennes. Ils méritent bien ça après tant d’efforts.
+            </p>
+            <p>
+                Avec toute ma reconnaissance,<br>
+                <em>Une cacahuète impatiente 🎄</em>
+            </p>
+        </div>
+        <img src="cabaia.png"/>
+    </div>
 </body>
 </html>
