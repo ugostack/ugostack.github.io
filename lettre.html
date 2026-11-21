@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Lettre au Père Noël</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --red: #b3141f;
+    --red-dark: #8a0f17;
+    --red-soft: #fbe9e9;
+    --green: #17603a;
+    --green-dark: #0b3b26;
+    --green-soft: #e8f3eb;
+    --gold: #c99a2e;
+    --gold-soft: #fbf3dc;
+    --cream: #fffaf0;
+    --ink: #2d2418;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 10.4pt;
+    line-height: 1.5;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- Page ---------- */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 10mm;
+    overflow: hidden;
+    background-color: var(--green-dark);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='white'%3E%3Ccircle cx='12' cy='18' r='2' opacity='.55'/%3E%3Ccircle cx='70' cy='8' r='1.3' opacity='.4'/%3E%3Ccircle cx='110' cy='30' r='2.4' opacity='.5'/%3E%3Ccircle cx='40' cy='60' r='1.2' opacity='.45'/%3E%3Ccircle cx='95' cy='75' r='1.8' opacity='.5'/%3E%3Ccircle cx='20' cy='100' r='1.5' opacity='.4'/%3E%3Ccircle cx='60' cy='120' r='2.2' opacity='.55'/%3E%3Ccircle cx='125' cy='115' r='1.2' opacity='.4'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(circle at 50% 0%, var(--green) 0%, var(--green-dark) 70%);
+    break-after: page;
+  }
+  .page:last-of-type { break-after: auto; }
+
+  .candy {
+    height: 100%;
+    padding: 4mm;
+    border-radius: 7mm;
+    background: repeating-linear-gradient(45deg, var(--red) 0 7px, #fff 7px 14px);
+    box-shadow: 0 0 0 1.1mm var(--gold);
+  }
+
+  .paper {
+    position: relative;
+    height: 100%;
+    padding: 12mm 15mm 11mm;
+    border-radius: 4.5mm;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .content { display: flow-root; position: relative; z-index: 1; }
+
+  /* ---------- Décorations ---------- */
+  .holly { position: absolute; top: 2mm; right: 3mm; width: 30mm; z-index: 0; }
+  .holly.left { left: 3mm; right: auto; transform: scaleX(-1); }
+  .flake { position: absolute; color: #c9dbe8; z-index: 0; }
+  .garland { display: block; width: 100%; height: auto; margin: -6mm 0 1mm; }
+
+  /* ---------- En-tête ---------- */
+  .head { text-align: center; margin-bottom: 5mm; }
+  .stars { color: var(--gold); letter-spacing: 3mm; font-size: 11pt; }
+  h1 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 36pt;
+    line-height: 1.05;
+    color: var(--red);
+    margin: 1mm 0;
+    text-shadow: 0 1.5px 0 rgba(201, 154, 46, .55);
+  }
+  .date { font-style: italic; color: #6b5a45; }
+
+  .greeting, .closing, .signature { font-family: 'Great Vibes', cursive; }
+  .greeting { font-size: 22pt; color: var(--green); margin: 0 0 2mm; line-height: 1.2; }
+
+  /* ---------- Texte ---------- */
+  p { margin: 0 0 2.6mm; }
+  strong { color: var(--green); }
+  em { color: var(--red-dark); }
+  .lead { font-size: 11pt; }
+
+  h2 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 19pt;
+    line-height: 1.15;
+    color: var(--red);
+    margin: 5mm 0 2mm;
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+  }
+  h2::after {
+    content: "";
+    flex: 1;
+    height: 1.2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  h2 .orn { color: var(--gold); font-size: 13pt; }
+
+  .bullets { list-style: none; margin: 0 0 2.6mm; padding: 0; }
+  .bullets li {
+    position: relative;
+    padding: 2mm 3mm 2mm 9mm;
+    margin-bottom: 1.6mm;
+    background: var(--green-soft);
+    border-radius: 2.5mm;
+  }
+  .bullets li::before {
+    content: "❄";
+    position: absolute;
+    left: 3mm;
+    top: 1.9mm;
+    color: var(--green);
+  }
+
+  /* ---------- La maison parle ---------- */
+  .voices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm;
+    margin: 1mm 0 4.5mm;
+  }
+  .voice {
+    position: relative;
+    background: #fff;
+    border: 1.3px solid var(--green);
+    border-radius: 4mm;
+    padding: 2.4mm 3mm 2.6mm;
+    font-style: italic;
+    font-size: 9.8pt;
+    line-height: 1.4;
+  }
+  .voice::after {
+    content: "";
+    position: absolute;
+    left: 6mm;
+    bottom: -1.9mm;
+    width: 3.2mm;
+    height: 3.2mm;
+    background: #fff;
+    border-right: 1.3px solid var(--green);
+    border-bottom: 1.3px solid var(--green);
+    transform: rotate(45deg);
+  }
+  .voice b {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--green);
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: .4mm;
+    margin-bottom: .6mm;
+  }
+  .voices.single { grid-template-columns: 1fr; width: 62%; margin-left: auto; margin-right: auto; }
+
+  /* ---------- Ma liste ---------- */
+  .wishlist {
+    position: relative;
+    margin: 8mm 0 3mm;
+    padding: 8mm 7mm 4mm;
+    background: #fff;
+    border: 2px dashed var(--gold);
+    border-radius: 5mm;
+    box-shadow: 0 0 0 2.2mm var(--gold-soft);
+  }
+  .ribbon {
+    position: absolute;
+    top: -5.5mm;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--red);
+    color: #fff;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 17pt;
+    line-height: 1;
+    padding: 2mm 9mm 2.2mm;
+    border-radius: 2mm;
+    white-space: nowrap;
+    box-shadow: 0 1mm 0 var(--red-dark);
+  }
+  .wishlist ol { list-style: none; margin: 0; padding: 0; }
+  .wishlist li {
+    display: flex;
+    gap: 3.5mm;
+    align-items: flex-start;
+    padding: 2.6mm 0;
+    border-bottom: 1px dotted #e3d3a8;
+  }
+  .wishlist li:last-child { border-bottom: none; }
+  .wishlist .icon {
+    flex: none;
+    width: 10mm;
+    height: 10mm;
+    border-radius: 50%;
+    background: var(--red-soft);
+    display: grid;
+    place-items: center;
+    font-size: 13pt;
+  }
+  .wishlist a {
+    color: var(--green);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1.2px solid var(--gold);
+  }
+  .wishlist .why { display: block; color: #6b5a45; font-style: italic; font-size: 9.8pt; }
+
+  /* ---------- Les veilleurs ---------- */
+  .secret {
+    margin: 3mm 0 4mm;
+    padding: 5mm 6mm 2mm;
+    background: var(--red-soft);
+    border: 1.5px solid #e8b4b4;
+    border-radius: 5mm;
+  }
+  .secret h3 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 17pt;
+    color: var(--red);
+    margin: 0 0 2mm;
+  }
+  .secret .bullets li { background: #fff; }
+  .secret .bullets li::before { content: "★"; color: var(--gold); }
+
+  .free {
+    text-align: center;
+    background: var(--gold-soft);
+    border-left: 1.5mm solid var(--gold);
+    border-right: 1.5mm solid var(--gold);
+    border-radius: 2mm;
+    padding: 3mm 5mm;
+    margin: 4mm 0;
+    font-style: italic;
+  }
+
+  .closing { font-size: 19pt; color: var(--green); margin: 4mm 0 0; line-height: 1.2; }
+  .signature { font-size: 36pt; color: var(--red); margin: 0 0 0 20mm; line-height: 1.1; }
+
+  .finale {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8mm;
+    text-align: center;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 22pt;
+    color: var(--green);
+  }
+  .finale span { color: var(--gold); }
+
+  @media screen {
+    body { background: #2a2a2a; padding: 8mm 0; }
+    .page { margin: 0 auto 8mm; box-shadow: 0 2mm 8mm rgba(0, 0, 0, .45); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<section class="page">
+  <div class="candy">
+    <div class="paper">
+      <span class="flake" style="left:6mm; bottom:8mm; font-size:30pt;">❄</span>
+      <span class="flake" style="right:9mm; bottom:40mm; font-size:16pt;">❄</span>
+      <div class="content">
+        <svg class="garland" viewBox="0 0 600 44" aria-hidden="true"></svg>
+
+        <header class="head">
+          <div class="stars">✦ ★ ✦</div>
+          <h1>Lettre au Père Noël</h1>
+          <div class="date">Le 21 novembre 2026</div>
+        </header>
+
+        <p class="greeting">Cher Père Noël,</p>
+
+        <p class="lead">Je t'écris un peu en avance cette année, parce que j'ai une mission importante à te confier&nbsp;: m'aider à comprendre ce qui se passe dans ma maison. Et puis j'ai été (presque) sage toute l'année, alors je tente ma chance.</p>
+
+        <h2><span class="orn">✦</span>La maison qui ne disait rien</h2>
+
+        <p>Il était une fois une maison tout à fait ordinaire.</p>
+
+        <p>Le soir, il faisait parfois un peu frais dans le salon, et personne ne savait vraiment pourquoi. Le matin, la salle de bain ressemblait à un hammam, et la buée mettait des heures à disparaître. Dans la chambre, certaines nuits, on dormait trop au chaud, d'autres trop au froid.</p>
+
+        <p>La maison savait tout ça. Mais elle ne disait rien.</p>
+
+        <p>Au fond d'un placard vivait pourtant un serveur très patient&nbsp;: <strong>Home Assistant</strong>. Il avait des tableaux de bord tout prêts, des graphiques qui ne demandaient qu'à être dessinés, des automatisations qui n'attendaient qu'un signal. Mais il n'avait ni yeux ni oreilles. Alors il attendait.</p>
+
+        <h2><span class="orn">✦</span>Les petites sentinelles</h2>
+
+        <p>C'est là que j'aimerais que tes lutins interviennent.</p>
+
+        <p>Je rêve de trois petites sentinelles&nbsp;: des <strong>thermomètres connectés SONOFF Zigbee</strong>, qui mesurent la température <em>et</em> l'humidité.</p>
+
+        <ul class="bullets">
+          <li><strong>La première, avec un écran, pour le salon</strong>&nbsp;: on pourra y jeter un œil en passant, sans même sortir son téléphone.</li>
+          <li><strong>Les deux autres, sans écran, plus discrètes</strong>&nbsp;: une pour la chambre, et une pour la salle de bain, là où l'humidité fait la loi.</li>
+        </ul>
+
+        <p>Elles sont toutes petites, tiennent des mois avec une simple pile, et chuchotent leurs mesures en Zigbee, toutes les quelques minutes, sans jamais se fatiguer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 2 ================= -->
+<section class="page">
+  <div class="candy">
+    <div class="paper">
+      <svg class="holly" viewBox="0 0 100 70" aria-hidden="true"><use href="#holly"/></svg>
+      <span class="flake" style="left:8mm; bottom:10mm; font-size:24pt;">❄</span>
+      <div class="content">
+        <h2 style="margin-top:2mm"><span class="orn">✦</span>Le traducteur</h2>
+
+        <p>Il reste un problème&nbsp;: mon serveur ne parle pas le Zigbee. Il lui faut un traducteur.</p>
+
+        <p>Ce traducteur, c'est la <strong>clé SONOFF Zigbee USB Dongle Plus (ZBDongle-E)</strong>. Une fois branchée sur le serveur, elle écoute toutes les sentinelles de la maison et répète fidèlement à Home Assistant tout ce qu'elles lui racontent.</p>
+
+        <p>Et alors, enfin, la maison se mettra à parler&nbsp;:</p>
+
+        <div class="voices">
+          <div class="voice"><b>🛋️ Salon</b>«&nbsp;19,5&nbsp;°C. On sort le plaid&nbsp;?&nbsp;»</div>
+          <div class="voice"><b>🛁 Salle de bain</b>«&nbsp;85&nbsp;% d'humidité. Ouvre la fenêtre&nbsp;!&nbsp;»</div>
+          <div class="voice"><b>🛏️ Chambre</b>«&nbsp;18&nbsp;°C. Parfait pour dormir.&nbsp;»</div>
+        </div>
+
+        <p>Jour après jour, les courbes se dessineront. Je saurai quelle pièce chauffe trop, laquelle garde l'humidité, et je pourrai créer des alertes quand quelque chose cloche. Une maison qui veille sur elle-même&nbsp;: je trouve que c'est un très beau cadeau.</p>
+
+        <div class="wishlist">
+          <div class="ribbon">🎁 Ma liste</div>
+          <ol>
+            <li>
+              <span class="icon">🔌</span>
+              <div>La <a href="https://amzn.eu/d/032rRQ9r">clé Zigbee SONOFF ZBDongle-E</a>
+                <span class="why">pour relier toutes les sentinelles à Home Assistant</span></div>
+            </li>
+            <li>
+              <span class="icon">🌡️</span>
+              <div>Un <a href="https://amzn.eu/d/00ovJWcz">thermomètre-hygromètre connecté SONOFF Zigbee avec écran</a>
+                <span class="why">pour le salon</span></div>
+            </li>
+            <li>
+              <span class="icon">🌡️</span>
+              <div>Deux <a href="https://amzn.eu/d/02YBivmX">thermomètres-hygromètres connectés SONOFF Zigbee sans écran SNZB-02P</a>
+                <span class="why">pour la chambre et la salle de bain</span></div>
+            </li>
+          </ol>
+        </div>
+
+        <h2><span class="orn">✦</span>Et le reste…</h2>
+
+        <p>J'ai volontairement gardé ma liste courte, pour te laisser de la place dans ta hotte. Tu me connais mieux que personne, alors je compte sur toi pour y glisser <strong>tes propres surprises</strong>. 🎁</p>
+
+        <p>Et si jamais tu manques d'idées, je te souffle un petit secret…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 3 ================= -->
+<section class="page">
+  <div class="candy">
+    <div class="paper">
+      <svg class="holly" viewBox="0 0 100 70" aria-hidden="true"><use href="#holly"/></svg>
+      <svg class="holly left" viewBox="0 0 100 70" aria-hidden="true"><use href="#holly"/></svg>
+      <span class="flake" style="left:10mm; bottom:40mm; font-size:18pt;">❄</span>
+      <span class="flake" style="right:10mm; bottom:28mm; font-size:26pt;">❄</span>
+      <div class="content">
+        <div class="secret" style="margin-top:14mm">
+          <h3>✨ Les veilleurs</h3>
+          <p>Les sentinelles diront s'il fait chaud, froid ou humide. Mais la maison ignorera encore une chose essentielle&nbsp;: <em>est-ce qu'il y a quelqu'un&nbsp;?</em> Pour ça, il lui faudrait des <strong>veilleurs</strong>&nbsp;:</p>
+          <ul class="bullets">
+            <li>👀 <strong>Le capteur de présence SONOFF SNZB-06P24</strong>&nbsp;: un veilleur très attentif, qui sent qu'on est là même quand on ne bouge plus, plongé dans un livre au fond du canapé.</li>
+            <li>🏃 <strong>Le détecteur de mouvement SONOFF SenseGuard SNZB-03PR2</strong>&nbsp;: un veilleur plus vif, qui repère quiconque passe devant lui. Parfait pour allumer doucement la lumière du couloir quand on se lève la nuit.</li>
+          </ul>
+          <p>Eux aussi parlent le Zigbee, et le traducteur saura les écouter sans rien ajouter. La maison pourrait alors dire&nbsp;:</p>
+          <div class="voices single">
+            <div class="voice"><b>🛋️ Salon</b>«&nbsp;Plus personne depuis 20&nbsp;minutes. J'éteins la lumière&nbsp;?&nbsp;»</div>
+          </div>
+        </div>
+
+        <p class="free">Bien sûr, tout ça ne reste que des idées, la liste comme les veilleurs. Tu es entièrement libre de faire comme tu le veux&nbsp;: changer un modèle, en retirer, en ajouter, ou me surprendre avec tout autre chose. <strong>C'est toi le Père Noël&nbsp;!</strong> 🎅</p>
+
+        <p>Merci d'avance, Père Noël. Je laisserai des biscuits près du sapin… et grâce à la sentinelle du salon, je saurai si tu as laissé entrer le froid en passant par la cheminée. 😉</p>
+
+        <p class="closing">Avec toute mon affection,</p>
+        <p class="signature">Ugo</p>
+      </div>
+      <div class="finale"><span>✦</span> Joyeux Noël <span>✦</span> 🎄</div>
+    </div>
+  </div>
+</section>
+
+<!-- Houx réutilisable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="leaf">
+      <path d="M0 0 Q6 -9 12 -6 Q15 -13 22 -10 Q27 -16 33 -11 Q39 -15 42 -8 Q48 -7 50 0 Q48 7 42 8 Q39 15 33 11 Q27 16 22 10 Q15 13 12 6 Q6 9 0 0 Z" fill="#1f7a3a"/>
+      <path d="M3 0 L46 0" stroke="#0f4d24" stroke-width="1.4" fill="none"/>
+    </g>
+    <g id="holly">
+      <use href="#leaf" transform="translate(52 34) rotate(195) scale(.95)"/>
+      <use href="#leaf" transform="translate(52 34) rotate(-15)"/>
+      <use href="#leaf" transform="translate(52 34) rotate(95) scale(.7)"/>
+      <circle cx="47" cy="36" r="6" fill="#c8102e"/>
+      <circle cx="58" cy="38" r="6" fill="#d62839"/>
+      <circle cx="52" cy="27" r="6" fill="#b3141f"/>
+      <circle cx="45" cy="34" r="1.6" fill="#fff" opacity=".7"/>
+      <circle cx="56" cy="36" r="1.6" fill="#fff" opacity=".7"/>
+      <circle cx="50" cy="25" r="1.6" fill="#fff" opacity=".7"/>
+    </g>
+  </defs>
+</svg>
+
+<script>
+  // Guirlande lumineuse de la page 1
+  (function () {
+    const svg = document.querySelector('.garland');
+    const ns = 'http://www.w3.org/2000/svg';
+    const colors = ['#d62839', '#f2c14e', '#2a9d55', '#3a86ff'];
+    let d = 'M0 6';
+    for (let x = 0; x < 600; x += 60) d += ` Q${x + 30} 26 ${x + 60} 6`;
+    const wire = document.createElementNS(ns, 'path');
+    wire.setAttribute('d', d);
+    wire.setAttribute('stroke', '#2f5d3a');
+    wire.setAttribute('stroke-width', '1.6');
+    wire.setAttribute('fill', 'none');
+    svg.appendChild(wire);
+    for (let i = 0; i < 10; i++) {
+      const x = 30 + i * 60;
+      svg.insertAdjacentHTML('beforeend',
+        `<rect x="${x - 3}" y="15" width="6" height="5" rx="1" fill="#b8a07a"/>` +
+        `<ellipse cx="${x}" cy="27" rx="5.5" ry="7.5" fill="${colors[i % 4]}"/>` +
+        `<ellipse cx="${x - 1.8}" cy="24" rx="1.5" ry="2.4" fill="#fff" opacity=".6"/>`);
+    }
+  })();
+</script>
+</body>
+</html>
